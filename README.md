@@ -17,7 +17,7 @@ Flag 'importsNotUsedAsValues' is deprecated and will stop functioning in TypeScr
 
 # 2.vscode 中报错 vue 模板只能有一个根元素
 
-![image-20230306231638820](/Users/tlm/Desktop/typora-image/image-20230306231638820.png)
+![image-20230306231638820](./images/vue-one-template.png)
 
 由于 vue3 已经支持多个根元素了，所以代码并没有报错，而 vscode 中的 eslint 中的 vue 校验 vetur 还没有更新，还认为是 vue2 项目所以就报错了。
 
@@ -218,3 +218,9 @@ setup(props,context){
   // context里面是attrs，slot，emit
 }
 ```
+
+# 13.vue3 中的 Fragment
+
+开始看到这个的时候以为和 react 中一样的用法，所以直接就在循环外使用了，结果控制台一直报警告，后来看了一下，vue3 中的这个是为了解决根元素上只能有一个元素的问题，现在 vue3 可以有多个了，当你写多个元素的时候，vue3 内部直接会给你自动加上一个 fragment，但是在页面元素那里不展示，而你可以在 devtool 中看到；
+
+在 vue 中像 react 的一样用法可以使用`<template></template>`,这效果和 React.Fragment 是一样的
